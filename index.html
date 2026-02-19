@@ -1,267 +1,461 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body{  
-  margin:0;  
-  padding:0;  
-}  h1, h2, h3 {
-margin: 0;
-padding: 0;
-}
-
+<!DOCTYPE html>  
+<html>  
+<head>  
+<style>  
+body{    
+  margin:0;    
+  padding:0;    
+}  
+h1, h2, h3 {  
+  margin: 0;  
+  padding: 0;  
+}  
 .screen{
-display:none;
+  display:none;
 }
 
 #marg,#marge,#margi,#margo,#merg,#mirg,#morg{
-position:absolute;
-width:30px;
-height:30px;
+  position:absolute;
+  width:30px;
+  height:30px;
 }
 
 #marg{
-left:160px;
-top:35px;
+  left:160px;
+  top:35px;
 }
 
 #marge{
-left:160px;
-top:70px;
+  left:160px;
+  top:70px;
 }
 
 #margi{
-left:160px;
-top:105px;
+  left:160px;
+  top:105px;
 }
 
 #margo{
-left:160px;
-top:140px;
+  left:160px;
+  top:140px;
 }
 
 #merg{
-left:200px;
-top:35px;
+  left:200px;
+  top:35px;
 }
 
 #mirg{
-left:200px;
-top:70px;
+  left:200px;
+  top:70px;
 }
 
 #morg{
-left:525px;
-top:35px;
+  left:525px;
+  top:35px;
 }
 
 .introimage{
-background:url('introbackground.png');
-background-size:100% 100%;
-height:100vh;
-width:100vw;
+  background:url('introbackground.png');
+  background-size:100% 100%;
+  height:100vh;
+  width:100vw;
 }
 
 .mainimage{
-background:url('mainbackground.png');
-background-size:100% 100%;
-height:100vh;
-width:100vw;
+  background:url('mainbackground.png');
+  background-size:100% 100%;
+  height:100vh;
+  width:100vw;
 }
 
 .notesimage{
-background:url('notesbackground.png');
-background-size:100% 100%;
-height:100vh;
-width:100vw;
+  background:url('notesbackground.png');
+  background-size:100% 100%;
+  height:100vh;
+  width:100vw;
 }
 
 #screenMusic{
-background:url('musicbig.jpg');
-background-size:100% 100%;
-height:100vh;
-width:100vw;
+  background:url('musicbig.jpg');
+  background-size:100% 100%;
+  height:100vh;
+  width:100vw;
 }
 
 #screenNotes{
-background:url('Notesbig.png');
-background-size:cover;
-background-repeat:no-repeat;
+  background:url('Notesbig.png');
+  background-size:cover;
+  background-repeat:no-repeat;
 }
 
 #screenTodo{
-background:url('todobig.jpg');
-background-size:cover;
-background-position:center;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+  background:url('todobig.jpg');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
 }
 
 #screenTracker{
-background:url('Trackerbig.jpg');
-background-size:cover;
-background-repeat:no-repeat;
-height:100vh;
-width:100vw;
-display: flex;           
-justify-content: center; 
-align-items: center;     
+  background:url('Trackerbig.jpg');
+  background-size:cover;
+  background-repeat:no-repeat;
+  height:100vh;
+  width:100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-#introbutton{
-width:40vw;
-height:30vh;
-margin-left:130px;
-margin-top:50px;
+#screenCalendar {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background: url('calendarbig.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-#button1{
-width:5vw;
-height:5vh;
-margin-left:5px;
+#screenMoodTracker {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background:url('Moodbig.jpg');
+  background-size: 100% 100%;
+  text-align: center;
 }
 
-#quote{
-font-size:12px;
-text-align:center;
-position:absolute;
-left:80%;
-transform:translateX(-50%);
-top:105px;
+/* REVIEW SCREENS */
+#reviewDashboard {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(abcdbig.jpeg);
+  background-size: 100% 100%;
+  padding: 40px;
 }
 
-#musicButton1{
-width:150px;
-height:100px;
-margin-left:120px;
-margin-top:40px;
-position:absolute;
+#reviewDashboard.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#musicButton2{
-width:150px;
-height:100px;
-margin-left:295px;
-margin-top:38px;
-position:absolute;
+#createReviewScreen {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(abcdbig.jpeg);
+  background-size: 100% 100%;
+  padding: 40px;
 }
 
-#notesArea{
-margin-top:10%;
-margin-left:15%;
-width:60%;
-height:350px;
-resize:none;
-border:none;
-outline:none;
-font-size:18px;
-background-color:transparent;
-line-height:29px;
-background-image:repeating-linear-gradient(
-to bottom,
-transparent,
-transparent 28px,
-black 29px
-);
+#createReviewScreen.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.container{
-padding:20px;
-border-radius:10px;
-text-align:center;
-flex-direction:column;
-align-items:center;
+#multipleChoiceScreen {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(abcdbig.jpeg);
+  background-size: 100% 100%;
+  padding: 40px;
+}
+
+#multipleChoiceScreen.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#resultScreen {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(abcdbig.jpeg);
+  background-size: 100% 100%;
+  padding: 40px;
+}
+
+#resultScreen.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#flipCardScreen {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('Flipbig.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+#flipCardScreen.active {
+  display: block;
+}
+
+.card {
+  background: #EDE0D0;
+  padding: 30px;
+  width: 70%;
+  border-radius: 12px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  box-sizing: border-box;
 }
 
 button{
-background:green;
-color:white;
-border:none;
-padding:6px 10px;
-cursor:pointer;
-border-radius:6px;
-margin-left:5px;
-}
-
-input{
-padding:6px 10px;
-border-radius:10px;
-}
-
-ul{
-list-style:none;
-padding:0;
-width:100%;
-}
-
-li{
-margin:5px 0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-#todobut,#trackbut{
-width:5vw;
-height:10vh;
-position:absolute;
-margin-left:20px;
-margin-top:-43px;
-}
-
-.box{
-background:#E5D6BE;
-padding:20px;
-border-radius:15px;
-width:320px;
-text-align:center;
-}
-
-#time{
-font-size:26px;
-font-weight:bold;
-margin:15px 0;
-}
-  /* notes*/
-  .notes-container{
-  background-color:#f5e6d3;
-  width:400px;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 5px 25px rgba(0,0,0,0.4);
-  margin:80px auto;
-}
-
-#noteName,#noteContent{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-  border-radius:6px;
-  border:1px solid #c7a17a;
-  font-size:14px;
-  box-sizing:border-box;
-}
-
-#noteContent{
-  height:200px;
-  resize:none;
-}
-
-.note-item{
-  background-color:#e8d3b9;
-  padding:8px;
-  border-radius:6px;
-  margin-bottom:5px;
+  background:green;
+  color:white;
+  border:none;
+  padding:6px 10px;
   cursor:pointer;
+  border-radius:6px;
+  margin-left:5px;
 }
 
-.note-item:hover{
-  background-color:#d7b892;
+button:hover {
+  background: #1d4ed8;
 }
-  /* Calendar */
+
+.answer-btn {
+  display: block;
+  width: 100%;
+  margin: 6px 0;
+  background: #e5e7eb;
+  color: black;
+}
+
+.answer-btn:hover {
+  background: #d1d5db;
+}
+
+.top-bar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.saved-item {
+  background: #f1f5f9;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.delete-btn {
+  background: red;
+  margin-top: 5px;
+}
+
+.result-card {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+/* FLIPCARD STYLES */
+.flip-card-wrapper {
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+  padding-top: 40px;
+}
+
+.game-title{
+  font-size:60px;
+  margin-top:0px;
+  color:black;
+  letter-spacing:3px;
+}
+
+.card-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:60px;
+  margin-top:60px;
+  flex-wrap: wrap;
+}
+
+.flip-card{
+  width:200px;
+  height:260px;
+  perspective:1000px;
+  cursor:pointer;
+  position:relative;
+}
+
+.flip-card::after{
+  content:'';
+  position:absolute;
+  bottom:-20px;
+  left:10%;
+  width:80%;
+  height:25px;
+  background:rgba(0,0,0,0.4);
+  filter:blur(12px);
+  border-radius:50%;
+  z-index:-1;
+}
+
+.inner{
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style:preserve-3d;
+  transition:transform 0.6s ease;
+}
+
+.flip{
+  transform:rotateY(180deg);
+}
+
+.front,
+.back{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border-radius:15px;
+  backface-visibility:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-sizing:border-box;
+  padding:20px;
+  font-weight:bold;
+  font-size:18px;
+  text-align:center;
+  box-shadow:0 15px 30px rgba(0,0,0,0.4);
+}
+
+.front{
+  background:#c7a26c;
+  color: white;
+}
+
+.back{
+  background:#c7a26c;
+  transform:rotateY(180deg);
+  color: white;
+  font-size: 16px;
+}
+
+.correct{
+  background:#2e7d32 !important;
+  color:white;
+}
+
+.wrong{
+  background:#c62828 !important;
+  color:white;
+}
+
+.flip-back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #6d4c41;
+}
+
+#flipScore {
+  font-size: 24px;
+  margin-top: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#flipQuestion {
+  font-size: 28px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  margin-top: 20px;
+}
+
+#highestScoreDisplay {
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* MOOD TRACKER */
+.mood-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.mood-day-name {
+  font-weight: bold;
+  width: 50px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mood-day {
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 1px solid;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.mood-legend span {
+  display: inline-block;
+  padding: 8px 15px;
+  margin: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.mood-legend span.selected {
+  border: 2px solid black;
+}
+
+/* CALENDAR */
 .calendar{
   width:100%;
   margin-top:20px;
@@ -319,9 +513,11 @@ margin:15px 0;
   color:white;
   border-radius:5px;
 }
+
 .happy { background:#ecdd7a; }
 .neutral { background:white; }
 .sad { background:#7aabec; color:white; }
+
 .task-item{
   margin-top:5px;
   border:1px solid #bfa27a;
@@ -331,497 +527,940 @@ margin:15px 0;
   justify-content:space-between;
   background:#f9f1e6;
 }
-  #screenCalendar {
-  display: none; 
-  height: 100vh;
-  width: 100vw;
-  background: url('calendarbig.jpg') center/cover no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+
+#introbutton{
+  width:40vw;
+  height:30vh;
+  margin-left:130px;
+  margin-top:50px;
 }
-  
-  
-</style>
-</head>
 
-<body>
+#quote{
+  font-size:12px;
+  text-align:center;
+  position:absolute;
+  left:80%;
+  transform:translateX(-50%);
+  top:105px;
+}
 
-<div class="introimage" id="introscreen">
-  <h1>FOCUSmate</h1>
-  <img src="introbut.png" onclick="start()" id="introbutton" style="cursor:pointer;">
-</div>
+#musicButton1{
+  width:150px;
+  height:100px;
+  margin-left:120px;
+  margin-top:40px;
+  position:absolute;
+}
 
-<div class="mainimage" id="mainscreen">
-  <h2>Home</h2>
-  <div id="quotebaks">
-    <span id="quote"></span>
+#musicButton2{
+  width:150px;
+  height:100px;
+  margin-left:295px;
+  margin-top:38px;
+  position:absolute;
+}
+
+.box{
+  background:#E5D6BE;
+  padding:20px;
+  border-radius:15px;
+  width:320px;
+  text-align:center;
+}
+
+#time{
+  font-size:26px;
+  font-weight:bold;
+  margin:15px 0;
+}
+
+.notes-container{
+  background-color:#f5e6d3;
+  width:400px;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 5px 25px rgba(0,0,0,0.4);
+  margin:80px auto;
+}
+
+#noteName,#noteContent{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:6px;
+  border:1px solid #c7a17a;
+  font-size:14px;
+  box-sizing:border-box;
+}
+
+#noteContent{
+  height:200px;
+  resize:none;
+}
+
+.note-item{
+  background-color:#e8d3b9;
+  padding:8px;
+  border-radius:6px;
+  margin-bottom:5px;
+  cursor:pointer;
+}
+
+.note-item:hover{
+  background-color:#d7b892;
+}
+
+ul{
+  list-style:none;
+  padding:0;
+  width:100%;
+}
+
+li{
+  margin:5px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+</style>  
+</head>  
+<body>  
+
+<div class="introimage" id="introscreen">  
+  <h1>FOCUSmate</h1>  
+  <img src="introbut.png" onclick="start()" id="introbutton" style="cursor:pointer;">  
+</div>  
+
+<div class="mainimage" id="mainscreen">  
+  <h2>Home</h2>  
+  <div id="quotebaks">  
+    <span id="quote"></span>  
+  </div>  
+  <img src="Review.png" onclick="openReview()" id="marg" style="cursor:pointer;">    
+  <img src="Music.png" onclick="openMusic()" id="marge" style="cursor:pointer;">    
+  <img src="Notes.png" onclick="openNotes()" id="margi" style="cursor:pointer;">    
+  <img src="Todo.png" onclick="openTodo()" id="margo" style="cursor:pointer;">    
+  <img src="Calendar.png" onclick="openCalendar()" id="mirg" style="cursor:pointer;">    
+  <img src="Tracker.png" onclick="openTracker()" id="merg" style="cursor:pointer;">    
+  <img src="Exit.png" onclick="exitwebsite()" id="morg" style="cursor:pointer;">    
+</div>  
+
+<!-- REVIEW DASHBOARD -->
+<div id="reviewDashboard">
+  <div class="card">
+    <h2>📚 Review System</h2>
+    <button onclick="showReviewScreen('createReviewScreen')">Create Questions</button>
+    <button onclick="startMultipleChoice()">Start Multiple Choice</button>
+    <button onclick="startFlipCard()">Start FlipCard Review</button>
+    <button onclick="backHome()">Back to Home</button>
   </div>
-  <img src="Review.png" onclick="openReview()" id="marg" style="cursor:pointer;">  
-  <img src="Music.png" onclick="openMusic()" id="marge" style="cursor:pointer;">  
-  <img src="Notes.png" onclick="openNotes()" id="margi" style="cursor:pointer;">  
-  <img src="Todo.png" onclick="openTodo()" id="margo" style="cursor:pointer;">  
-  <img src="Calendar.png" onclick="openCalendar()" id="mirg" style="cursor:pointer;">  
-  <img src="Tracker.png" onclick="openTracker()" id="merg" style="cursor:pointer;">  
-  <img src="Exit.png" onclick="exitwebsite()" id="morg" style="cursor:pointer;">  
 </div>
 
-<div id="screenReview">
-  <h2>Review</h2>
-  <button onclick="backHome()">Back</button>
+<!-- CREATE REVIEW SCREEN -->
+<div id="createReviewScreen">
+  <div class="top-bar">
+    <button onclick="showReviewScreen('reviewDashboard')">⬅ Back</button>
+  </div>
+
+  <div class="card">
+    <h2>Create Question</h2>
+
+    <input id="question" placeholder="Enter question">
+    <input id="a" placeholder="Option A">
+    <input id="b" placeholder="Option B">
+    <input id="c" placeholder="Option C">
+    <input id="d" placeholder="Option D">
+
+    <select id="correct">
+      <option value="A">Correct Answer: A</option>
+      <option value="B">Correct Answer: B</option>
+      <option value="C">Correct Answer: C</option>
+      <option value="D">Correct Answer: D</option>
+    </select>
+
+    <button onclick="addQuestion()">Add Question</button>
+
+    <h3>Saved Questions</h3>
+    <div id="savedQuestions"></div>
+  </div>
 </div>
 
-<div class="musicimage" id="screenMusic">
-  <h2>Music</h2>
-  <img src="musicbut1.png" onclick="playMusic1()" id="musicButton1" style="cursor:pointer;">
-  <img src="musicbut2.png" onclick="playMusic2()" id="musicButton2" style="cursor:pointer;">
-  <audio id="bgm" loop></audio>
-  <button onclick="backHome()">Back</button>
+<!-- MULTIPLE CHOICE SCREEN -->
+<div id="multipleChoiceScreen">
+  <div class="top-bar">
+    <button onclick="showReviewScreen('reviewDashboard')">⬅ Exit</button>
+  </div>
+
+  <div class="card">
+    <h3 id="progress"></h3>
+    <h2 id="questionText"></h2>
+    <div id="answers"></div>
+  </div>
 </div>
 
-<div class="notesimage" id="screenNotes">
-  <div class="notes-container">
-    <h2>My Notes</h2>
+<!-- RESULT SCREEN -->
+<div id="resultScreen">
+  <div class="card">
+    <h2 id="scoreText"></h2>
+    <div id="missedList"></div>
+    <button onclick="showReviewScreen('reviewDashboard')">Back to Dashboard</button>
+  </div>
+</div>
 
-    <input type="text" id="noteName" placeholder="Note title">
-    <textarea id="noteContent" placeholder="Write your note..."></textarea>
+<!-- FLIPCARD SCREEN -->
+<div id="flipCardScreen">
+  <button class="flip-back-btn" onclick="showReviewScreen('reviewDashboard')">⬅ Back</button>
+  
+  <div class="flip-card-wrapper">
+    <h1 class="game-title">FLIP THE CARD!</h1>
+    <h2 id="flipQuestion"></h2>
+    <div class="card-container" id="cards"></div>
+    <h3 id="flipScore"></h3>
+    <h3 id="highestScoreDisplay"></h3>
+  </div>
+</div>
 
-    <button onclick="saveNote()">Save</button>
-    <button onclick="deleteNote()">Delete</button>
-    <button onclick="backHome()">Back</button>
+<!-- MUSIC SCREEN -->
+<div class="musicimage" id="screenMusic">  
+  <h2>Music</h2>  
+  <img src="musicbut1.png" onclick="playMusic1()" id="musicButton1" style="cursor:pointer;">  
+  <img src="musicbut2.png" onclick="playMusic2()" id="musicButton2" style="cursor:pointer;">  
+  <audio id="bgm" loop></audio>  
+  <button onclick="backHome()">Back</button>  
+</div>  
 
+<!-- NOTES SCREEN -->
+<div class="notesimage" id="screenNotes">  
+  <div class="notes-container">  
+    <h2>My Notes</h2>  
+    <input type="text" id="noteName" placeholder="Note title">  
+    <textarea id="noteContent" placeholder="Write your note..."></textarea>  
+    <button onclick="saveNote()">Save</button>  
+    <button onclick="deleteNote()">Delete</button>  
+    <button onclick="backHome()">Back</button>  
     <div id="savedNotes"></div>
-  </div>
-</div>
+  </div>  
+</div>  
 
-<div id="screenTodo">
-  <div class="box">
-    <h3>To-Do List</h3>
-    <div style="display:flex;width:100%;">
-      <input id="task" placeholder="Create task...">
-      <button onclick="add()">Add</button>
+<!-- TODO SCREEN -->
+<div id="screenTodo">  
+  <div class="box">  
+    <h3>To-Do List</h3>  
+    <div style="display:flex;width:100%;">  
+      <input id="task" placeholder="Create task...">  
+      <button onclick="add()">Add</button>  
+    </div>  
+    <ul id="list"></ul>  
+    <button onclick="backHome()">Back</button>  
+  </div>  
+</div>  
+
+<!-- TRACKER SCREEN -->
+<div id="screenTracker">  
+  <div class="box">  
+    <h2>Study Tracker</h2>  
+    <p>Accumulated time in studying:</p>  
+    <div id="time">0 minutes</div>  
+    <div id="message"></div>  
+    <button onclick="resetTime()">Reset</button>  
+    <button onclick="backHome()">Back</button>  
+  </div>  
+</div>  
+
+<!-- CALENDAR SCREEN -->
+<div id="screenCalendar">  
+  <div style="background:rgba(230,211,179,0.9); padding:20px; border-radius:15px; width:90%; max-width:600px; text-align:center;">  
+    <h2 id="monthYear"></h2>  
+    <div class="calendar">  
+      <div class="days-header">  
+        <div>Sun</div><div>Mon</div><div>Tue</div>  
+        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>  
+      </div>  
+      <div class="days" id="days"></div>  
+    </div>  
+
+    <div class="task-box" id="taskBox" style="display:none; margin-top:20px;">  
+      <h3 id="taskTitle"></h3>  
+      <input type="text" id="taskInput" placeholder="Add task...">  
+      <button onclick="addTask()">Add</button>  
+      <div id="taskList"></div>  
     </div>
-    <ul id="list"></ul>
-    <button onclick="backHome()">Back</button>
-  </div>
-</div>
 
-<div id="screenTracker">
-  <div class="box">
-    <h2>Study Tracker</h2>
-    <p>Accumulated time in studying:</p>
-    <div id="time">0 minutes</div>
-    <div id="message"></div>
-    <button onclick="resetTime()">Reset</button>
-    <button onclick="backHome()">Back</button>
-  </div>
-</div>
-  
-<div id="screenCalendar" style="display:none; height:100vh; width:100vw; background:url('calendarbig.jpg'); background-size:cover; background-position:center; justify-content:center; align-items:center; flex-direction:column;">
+    <button onclick="openMoodTracker()" style="margin-top:20px; background:#c49a6c;">Vibe Check 😊</button>
+    <button onclick="backHome()" style="margin-top:20px;">Back</button>  
+  </div>  
+</div>  
 
-  <div style="background:rgba(230,211,179,0.9); padding:20px; border-radius:15px; width:90%; max-width:600px; text-align:center;">
-    <h2 id="monthYear"></h2>
+<!-- MOOD TRACKER SCREEN -->
+<div id="screenMoodTracker">
+  <div style="padding: 20px;">
+    <h2 id="moodMonthYear"></h2>
+    <div class="mood-calendar" id="moodCalendar"></div>
 
-    <div class="calendar">
-      <div class="days-header">
-        <div>Sun</div><div>Mon</div><div>Tue</div>
-        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
-      </div>
-      <div class="days" id="days"></div>
+    <div class="mood-legend" style="margin-top: 20px;">
+      <span id="happyBtn" style="background:#ecdd7a;">Happy</span>
+      <span id="neutralBtn" style="background:white;border:1px solid;">Neutral</span>
+      <span id="sadBtn" style="background:#7aabec;color:white;">Sad</span>
     </div>
 
-    <div class="task-box" id="taskBox" style="display:none; margin-top:20px;">
-      <h3 id="taskTitle"></h3>
-      <input type="text" id="taskInput" placeholder="Add task...">
-      <button onclick="addTask()">Add</button>
-      <div id="taskList"></div>
-    </div>
-<div style="margin-top:20px;">
-  <h3>Vibe Check</h3>
-  <div>
-    <span id="calHappy" style="background:#ecdd7a;padding:8px 15px;border-radius:6px;cursor:pointer;margin:5px;">Happy</span>
-    <span id="calNeutral" style="background:white;border:1px solid;padding:8px 15px;border-radius:6px;cursor:pointer;margin:5px;">Neutral</span>
-    <span id="calSad" style="background:#7aabec;color:white;padding:8px 15px;border-radius:6px;cursor:pointer;margin:5px;">Sad</span>
-  </div>
-  <p id="calWeekMessage"></p>
-</div>
-    <button onclick="backHome()" style="margin-top:20px;">Back</button>
+    <p id="weekMessage" style="margin-top: 20px; font-size: 18px; font-weight: bold;"></p>
+
+    <button onclick="backToCalendar()" style="margin-top: 20px;">Back to Calendar</button>
   </div>
 </div>
-  
+
 <script>
-let introscreen=document.getElementById("introscreen");
-let mainscreen=document.getElementById("mainscreen");
-let screenReview=document.getElementById("screenReview");
-let screenMusic=document.getElementById("screenMusic");
-let screenNotes=document.getElementById("screenNotes");
-let screenTodo=document.getElementById("screenTodo");
-let screenTracker=document.getElementById("screenTracker");
-let screenCalendar=document.getElementById("screenCalendar");
+// ==================== MAIN APP VARIABLES ====================
+let introscreen = document.getElementById("introscreen");  
+let mainscreen = document.getElementById("mainscreen");  
+let screenMusic = document.getElementById("screenMusic");  
+let screenNotes = document.getElementById("screenNotes");  
+let screenTodo = document.getElementById("screenTodo");  
+let screenTracker = document.getElementById("screenTracker");  
+let screenCalendar = document.getElementById("screenCalendar");  
+let screenMoodTracker = document.getElementById("screenMoodTracker");  
 
-function hideAllScreens(){
-  introscreen.style.display="none";
-  mainscreen.style.display="none";
-  screenReview.style.display="none";
-  screenMusic.style.display="none";
-  screenNotes.style.display="none";
-  screenTodo.style.display="none";
-  screenTracker.style.display="none";
-  screenCalendar.style.display="none";
-}
+// REVIEW SCREENS
+let reviewDashboard = document.getElementById("reviewDashboard");
+let createReviewScreen = document.getElementById("createReviewScreen");
+let multipleChoiceScreen = document.getElementById("multipleChoiceScreen");
+let resultScreen = document.getElementById("resultScreen");
+let flipCardScreen = document.getElementById("flipCardScreen");
 
-function start(){
+// ==================== MAIN SCREEN MANAGEMENT ====================
+function hideAllScreens(){  
+  introscreen.style.display = "none";  
+  mainscreen.style.display = "none";  
+  screenMusic.style.display = "none";  
+  screenNotes.style.display = "none";  
+  screenTodo.style.display = "none";  
+  screenTracker.style.display = "none";  
+  screenCalendar.style.display = "none";  
+  screenMoodTracker.style.display = "none";  
+  reviewDashboard.classList.remove("active");
+  createReviewScreen.classList.remove("active");
+  multipleChoiceScreen.classList.remove("active");
+  resultScreen.classList.remove("active");
+  flipCardScreen.classList.remove("active");
+}  
+
+function start(){  
+  hideAllScreens();  
+  mainscreen.style.display = "block";  
+}  
+
+function openReview(){
   hideAllScreens();
-  mainscreen.style.display="block";
+  reviewDashboard.classList.add("active");
 }
 
-function openReview(){hideAllScreens();screenReview.style.display="block";}
-function openMusic(){hideAllScreens();screenMusic.style.display="block";}
-function openNotes(){hideAllScreens();screenNotes.style.display="block";}
-function openTodo(){hideAllScreens();screenTodo.style.display="flex";}
-function openTracker(){hideAllScreens();screenTracker.style.display="flex";}
-function backHome(){hideAllScreens();mainscreen.style.display="block";}
-function exitwebsite(){
-  window.close();
+function openMusic(){hideAllScreens(); screenMusic.style.display = "block";}  
+function openNotes(){hideAllScreens(); screenNotes.style.display = "block";}  
+function openTodo(){hideAllScreens(); screenTodo.style.display = "flex";}  
+function openTracker(){hideAllScreens(); screenTracker.style.display = "flex";}  
+function backHome(){hideAllScreens(); mainscreen.style.display = "block";}  
+function exitwebsite(){  
+  window.close();  
+}  
+
+// ==================== REVIEW SCREEN MANAGEMENT ====================
+function showReviewScreen(screenId) {
+  createReviewScreen.classList.remove("active");
+  multipleChoiceScreen.classList.remove("active");
+  resultScreen.classList.remove("active");
+  flipCardScreen.classList.remove("active");
+  reviewDashboard.classList.remove("active");
+  
+  document.getElementById(screenId).classList.add("active");
 }
 
+// ==================== QUOTES ====================
+function fnctbox(){  
+  var quotes=[  
+    "Trust God with all <br> your heart.",  
+    "Do not give up, God <br> is with you.",  
+    "Pray first before <br> anything else.",  
+    "God's timing is <br> always perfect.",  
+    "Faith over fear."  
+  ];  
+  var random = Math.floor(Math.random() * quotes.length);  
+  document.getElementById("quote").innerHTML = quotes[random];  
+}  
 
-function fnctbox(){
-  var quotes=[
-    "Trust God with all <br> your heart.",
-    "Do not give up, God <br> is with you.",
-    "Pray first before <br> anything else.",
-    "God's timing is <br> always perfect.",
-    "Faith over fear."
-  ];
-  var random=Math.floor(Math.random()*quotes.length);
-  document.getElementById("quote").innerHTML=quotes[random];
-}
+window.onload = function(){  
+  hideAllScreens();  
+  introscreen.style.display = "block";  
+  fnctbox();  
+}  
 
-window.onload=function(){
-  hideAllScreens();
-  introscreen.style.display="block";
-  fnctbox();
-}
+// ==================== MUSIC ====================
+const bgm = document.getElementById("bgm");  
 
-const bgm=document.getElementById("bgm");
+document.addEventListener("click", function autoPlay(){  
+  bgm.src = "music1.mp3";  
+  bgm.play();  
+  document.removeEventListener("click", autoPlay);  
+});  
 
-document.addEventListener("click",function autoPlay(){
-  bgm.src="music1.mp3";
-  bgm.play();
-  document.removeEventListener("click",autoPlay);
-});
+function playMusic1(){bgm.src = "music1.mp3"; bgm.play();}  
+function playMusic2(){bgm.src = "music2.mp3"; bgm.play();}  
 
-function playMusic1(){bgm.src="music1.mp3";bgm.play();}
-function playMusic2(){bgm.src="music2.mp3";bgm.play();}
+// ==================== TODO ====================
+function add(){  
+  var t = document.getElementById("task");  
+  if(t.value === "") return;  
+  var li = document.createElement("li");  
+  li.textContent = t.value + " ";  
+  li.onclick = function(){  
+    li.style.textDecoration = li.style.textDecoration === "line-through" ? "none" : "line-through";  
+  };  
+  var x = document.createElement("button");  
+  x.textContent = "X";  
+  x.onclick = function(e){  
+    e.stopPropagation();  
+    li.remove();  
+  };  
+  li.appendChild(x);  
+  document.getElementById("list").appendChild(li);  
+  t.value = "";  
+}  
 
-function add(){
-  var t=document.getElementById("task");
-  if(t.value==="")return;
-  var li=document.createElement("li");
-  li.textContent=t.value+" ";
-  li.onclick=function(){
-    li.style.textDecoration=
-    li.style.textDecoration==="line-through"?"none":"line-through";
-  };
-  var x=document.createElement("button");
-  x.textContent="X";
-  x.onclick=function(e){
-    e.stopPropagation();
-    li.remove();
-  };
-  li.appendChild(x);
-  document.getElementById("list").appendChild(li);
-  t.value="";
-}
+// ==================== TRACKER ====================
+let seconds = localStorage.getItem("studyTime") ? parseInt(localStorage.getItem("studyTime")) : 0;  
 
-let seconds=localStorage.getItem("studyTime")?parseInt(localStorage.getItem("studyTime")):0;
+function updateDisplay(){  
+  let minutes = Math.floor(seconds / 60);  
+  document.getElementById("time").innerText = minutes + " minutes";  
+  if(minutes > 0){  
+    document.getElementById("message").innerText = "Well done! 🎉";  
+  }  
+}  
 
-function updateDisplay(){
-  let minutes=Math.floor(seconds/60);
-  document.getElementById("time").innerText=minutes+" minutes";
-  if(minutes>0){
-    document.getElementById("message").innerText="Well done! 🎉";
+updateDisplay();  
+
+setInterval(() => {  
+  seconds++;  
+  localStorage.setItem("studyTime", seconds);  
+  updateDisplay();  
+}, 1000);  
+
+function resetTime(){  
+  seconds = 0;  
+  localStorage.removeItem("studyTime");  
+  updateDisplay();  
+  document.getElementById("message").innerText = "";  
+}  
+
+// ==================== NOTES ====================
+let notes = JSON.parse(localStorage.getItem("myNotes")) || [];  
+
+function saveNote(){  
+  let name = document.getElementById("noteName").value;  
+  let content = document.getElementById("noteContent").value;  
+
+  if(name === "" || content === ""){  
+    alert("Please fill in both fields.");  
+    return;  
+  }  
+
+  let existingIndex = notes.findIndex(n => n.name === name);  
+
+  if(existingIndex >= 0){  
+    notes[existingIndex].content = content;  
+  } else {  
+    notes.push({name: name, content: content});  
+  }  
+
+  localStorage.setItem("myNotes", JSON.stringify(notes));  
+  document.getElementById("noteName").value = "";  
+  document.getElementById("noteContent").value = "";  
+  showNotes();  
+}  
+
+function deleteNote(){  
+  let name = document.getElementById("noteName").value;  
+  notes = notes.filter(n => n.name !== name);  
+  localStorage.setItem("myNotes", JSON.stringify(notes));  
+  document.getElementById("noteName").value = "";  
+  document.getElementById("noteContent").value = "";  
+  showNotes();  
+}  
+
+function showNotes(){  
+  let container = document.getElementById("savedNotes");  
+  container.innerHTML = "";  
+
+  notes.forEach(function(note){  
+    let div = document.createElement("div");  
+    div.className = "note-item";  
+    div.innerText = note.name;  
+
+    div.onclick = function(){  
+      document.getElementById("noteName").value = note.name;  
+      document.getElementById("noteContent").value = note.content;  
+    };  
+
+    container.appendChild(div);  
+  });  
+}  
+
+showNotes();  
+
+// ==================== CALENDAR ====================
+const monthYear = document.getElementById("monthYear");  
+const daysContainer = document.getElementById("days");  
+const taskBox = document.getElementById("taskBox");  
+const taskTitle = document.getElementById("taskTitle");  
+const taskList = document.getElementById("taskList");  
+const taskInput = document.getElementById("taskInput");  
+
+const date = new Date();  
+let year = date.getFullYear();  
+let month = date.getMonth();  
+const months = [  
+  "January", "February", "March", "April", "May", "June",  
+  "July", "August", "September", "October", "November", "December"  
+];  
+
+let tasks = JSON.parse(localStorage.getItem("tasks")) || {};  
+let selectedDate = "";  
+
+function renderCalendar(){  
+  daysContainer.innerHTML = "";  
+  monthYear.innerText = months[month] + " " + year;  
+  
+  const firstDay = new Date(year, month, 1).getDay();  
+  const lastDate = new Date(year, month + 1, 0).getDate();  
+
+  for(let i = 0; i < firstDay; i++){  
+    daysContainer.innerHTML += "<div></div>";  
+  }  
+
+  for(let day = 1; day <= lastDate; day++){  
+    let className = day === date.getDate() && month === date.getMonth() && year === date.getFullYear() ? "today" : "";  
+    daysContainer.innerHTML += `<div class="${className}" onclick="openTasks(${day})">${day}</div>`;  
+  }  
+}  
+
+function openTasks(day){  
+  selectedDate = year + "-" + month + "-" + day;  
+  taskBox.style.display = "block";  
+  taskTitle.innerHTML = "Tasks for " + months[month] + " " + day;  
+  showTasks();  
+}  
+
+function showTasks(){  
+  taskList.innerHTML = "";  
+  if(!tasks[selectedDate]) tasks[selectedDate] = [];  
+  
+  tasks[selectedDate].forEach((t, i) => {  
+    let div = document.createElement("div");  
+    div.className = "task-item";  
+    div.innerHTML = `${t} <button onclick="deleteTask(${i})">X</button>`;  
+    taskList.appendChild(div);  
+  });  
+  
+  localStorage.setItem("tasks", JSON.stringify(tasks));  
+}  
+
+function addTask(){  
+  if(taskInput.value === "") return;  
+  if(!tasks[selectedDate]) tasks[selectedDate] = [];  
+  tasks[selectedDate].push(taskInput.value);  
+  localStorage.setItem("tasks", JSON.stringify(tasks));  
+  taskInput.value = "";  
+  showTasks();  
+}  
+
+function deleteTask(index){  
+  tasks[selectedDate].splice(index, 1);  
+  localStorage.setItem("tasks", JSON.stringify(tasks));  
+  showTasks();  
+}  
+
+function openCalendar(){  
+  hideAllScreens();  
+  screenCalendar.style.display = "flex";  
+  renderCalendar();
+}  
+
+// ==================== MOOD TRACKER ====================
+let calendarMoods = JSON.parse(localStorage.getItem("calendarMoods")) || {};
+let selectedMood = "happy";
+
+function renderMoodCalendar(){
+  const moodCalendar = document.getElementById("moodCalendar");
+  const moodMonthYear = document.getElementById("moodMonthYear");
+  moodCalendar.innerHTML = "";
+  
+  moodMonthYear.innerText = months[month] + " " + year;
+
+  const dayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  dayNames.forEach(d => {
+    const div = document.createElement("div");
+    div.textContent = d;
+    div.className = "mood-day-name";
+    moodCalendar.appendChild(div);
+  });
+
+  const firstDay = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+  for (let i = 0; i < firstDay; i++) {
+    moodCalendar.appendChild(document.createElement("div"));
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    const cell = document.createElement("div");
+    cell.textContent = day;
+    cell.className = "mood-day neutral";
+
+    const dateKey = year + "-" + month + "-" + day;
+
+    const savedMood = calendarMoods[dateKey];
+    if (savedMood) {
+      cell.className = "mood-day " + savedMood;
+    }
+
+    cell.onclick = function() {
+      this.className = "mood-day " + selectedMood;
+      calendarMoods[dateKey] = selectedMood;
+      localStorage.setItem("calendarMoods", JSON.stringify(calendarMoods));
+      checkWeekMood(day);
+    };
+
+    moodCalendar.appendChild(cell);
   }
 }
 
-updateDisplay();
-
-setInterval(()=>{
-  seconds++;
-  localStorage.setItem("studyTime",seconds);
-  updateDisplay();
-},1000);
-
-function resetTime(){
-  seconds=0;
-  localStorage.removeItem("studyTime");
-  updateDisplay();
-  document.getElementById("message").innerText="";
+function moodValue(mood) {
+  if (mood === "happy") return 1;
+  if (mood === "sad") return -1;
+  return 0;
 }
-  /*notes*/
-  let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
 
-function saveNote(){
-  let name = document.getElementById("noteName").value;
-  let content = document.getElementById("noteContent").value;
+function checkWeekMood(day) {
+  const clickedDate = new Date(year, month, day);
+  const weekMessage = document.getElementById("weekMessage");
 
-  if(name === "" || content === ""){
-    alert("Please fill in both fields.");
+  if (clickedDate.getDay() === 6) {
+    let score = 0;
+    let count = 0;
+
+    for (let i = 0; i < 7; i++) {
+      const checkDate = new Date(year, month, day - i);
+      const key = checkDate.getFullYear() + "-" + checkDate.getMonth() + "-" + checkDate.getDate();
+      const mood = calendarMoods[key];
+
+      if (mood) {
+        score += moodValue(mood);
+        count++;
+      }
+    }
+
+    if (count > 0) {
+      if (score > 2) {
+        weekMessage.textContent = "wow! you're enjoying recent days 😊";
+      } else if (score < -2) {
+        weekMessage.textContent = "you seem sad recently 😢";
+      } else {
+        weekMessage.textContent = "your mood has been mixed this week 😐";
+      }
+    }
+  }
+}
+
+function openMoodTracker(){
+  hideAllScreens();
+  screenMoodTracker.style.display = "block";
+  renderMoodCalendar();
+}
+
+function backToCalendar(){
+  hideAllScreens();
+  screenCalendar.style.display = "flex";
+}
+
+const happyBtn = document.getElementById("happyBtn");
+const neutralBtn = document.getElementById("neutralBtn");
+const sadBtn = document.getElementById("sadBtn");
+
+function selectMood(mood, button) {
+  selectedMood = mood;
+  happyBtn.classList.remove("selected");
+  neutralBtn.classList.remove("selected");
+  sadBtn.classList.remove("selected");
+  button.classList.add("selected");
+}
+
+happyBtn.onclick = () => selectMood("happy", happyBtn);
+neutralBtn.onclick = () => selectMood("neutral", neutralBtn);
+sadBtn.onclick = () => selectMood("sad", sadBtn);
+
+happyBtn.classList.add("selected");
+
+// ==================== REVIEW SYSTEM ====================
+let questions = JSON.parse(localStorage.getItem("reviewQuestions")) || [];
+
+// MULTIPLE CHOICE VARIABLES
+let current = 0;
+let score = 0;
+let missed = [];
+
+// FLIPCARD VARIABLES
+let highestScore = localStorage.getItem("highestScore") || 0;
+let currentSet = [];
+let correctAnswer = "";
+let flipScore = 0;
+let clickable = false;
+
+function addQuestion() {
+  const q = {
+    text: document.getElementById("question").value,
+    A: document.getElementById("a").value,
+    B: document.getElementById("b").value,
+    C: document.getElementById("c").value,
+    D: document.getElementById("d").value,
+    correct: document.getElementById("correct").value
+  };
+
+  if (!q.text || !q.A || !q.B || !q.C || !q.D) {
+    alert("Please complete all fields.");
     return;
   }
 
-  let existingIndex = notes.findIndex(n => n.name === name);
+  questions.push(q);
+  localStorage.setItem("reviewQuestions", JSON.stringify(questions));
+  renderSavedQuestions();
 
-  if(existingIndex >= 0){
-    notes[existingIndex].content = content;
-  }else{
-    notes.push({name:name, content:content});
-  }
-
-  localStorage.setItem("myNotes", JSON.stringify(notes));
-
-  document.getElementById("noteName").value="";
-  document.getElementById("noteContent").value="";
-
-  showNotes();
+  document.getElementById("question").value = "";
+  document.getElementById("a").value = "";
+  document.getElementById("b").value = "";
+  document.getElementById("c").value = "";
+  document.getElementById("d").value = "";
 }
 
-function deleteNote(){
-  let name = document.getElementById("noteName").value;
+function renderSavedQuestions() {
+  const container = document.getElementById("savedQuestions");
+  container.innerHTML = "";
 
-  notes = notes.filter(n => n.name !== name);
-
-  localStorage.setItem("myNotes", JSON.stringify(notes));
-
-  document.getElementById("noteName").value="";
-  document.getElementById("noteContent").value="";
-
-  showNotes();
-}
-
-function showNotes(){
-  let container = document.getElementById("savedNotes");
-  container.innerHTML="";
-
-  notes.forEach(function(note){
-    let div=document.createElement("div");
-    div.className="note-item";
-    div.innerText=note.name;
-
-    div.onclick=function(){
-      document.getElementById("noteName").value=note.name;
-      document.getElementById("noteContent").value=note.content;
-    };
-
-    container.appendChild(div);
+  questions.forEach((q, index) => {
+    container.innerHTML += `
+      <div class="saved-item">
+        <strong>${q.text}</strong><br>
+        Correct Answer: ${q.correct}
+        <br>
+        <button class="delete-btn" onclick="deleteQuestionReview(${index})">Delete</button>
+      </div>
+    `;
   });
 }
 
-showNotes();
-  
-/* ---------------- REPLACE Calendar JS WITH THIS BLOCK ---------------- */
-
-const monthYear = document.getElementById("monthYear");
-const daysContainer = document.getElementById("days");
-const taskBox = document.getElementById("taskBox");
-const taskTitle = document.getElementById("taskTitle");
-const taskList = document.getElementById("taskList");
-const taskInput = document.getElementById("taskInput");
-
-const today = new Date();
-let calYear = today.getFullYear();
-let calMonth = today.getMonth(); // 0-based
-const months = [
-  "January","February","March","April","May","June",
-  "July","August","September","October","November","December"
-];
-
-/* consistent ISO-style date key: YYYY-MM-DD (month is 1-based, zero-padded) */
-function formatKey(y, mZeroBased, d){
-  return `${y}-${String(mZeroBased + 1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+function deleteQuestionReview(index) {
+  questions.splice(index, 1);
+  localStorage.setItem("reviewQuestions", JSON.stringify(questions));
+  renderSavedQuestions();
 }
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || {};
-let calendarMoods = JSON.parse(localStorage.getItem("calendarMoods")) || {};
-let selectedDate = "";     // ISO key like "2026-02-20"
-let selectedMood = "happy";
-
-// Single, global calendar renderer (no duplicates)
-function renderCalendar(){
-  daysContainer.innerHTML = "";
-  monthYear.innerText = months[calMonth] + " " + calYear;
-
-  const firstDay = new Date(calYear, calMonth, 1).getDay();
-  const lastDate = new Date(calYear, calMonth + 1, 0).getDate();
-
-  // empty slots before first day
-  for(let i = 0; i < firstDay; i++){
-    daysContainer.innerHTML += "<div></div>";
+function startMultipleChoice() {
+  if (questions.length === 0) {
+    alert("No questions available. Create some first!");
+    return;
   }
 
-  for(let day = 1; day <= lastDate; day++){
-    const dateKey = formatKey(calYear, calMonth, day);
-    const moodClass = calendarMoods[dateKey] || "";
-    const isToday = (day === today.getDate() && calMonth === today.getMonth() && calYear === today.getFullYear());
-    const className = (isToday ? "today " : "") + moodClass;
-    // make sure openTasks is global (we expose it below)
-    daysContainer.innerHTML += `<div class="${className}" onclick="openTasks(${day})">${day}</div>`;
-  }
+  let shuffled = [...questions].sort(() => Math.random() - 0.5);
+  current = 0;
+  score = 0;
+  missed = [];
+
+  showReviewScreen('multipleChoiceScreen');
+  showQuestion();
 }
 
-/* openTasks must be global because the HTML uses onclick inline */
-window.openTasks = function(day){
-  selectedDate = formatKey(calYear, calMonth, day);
-  const savedMood = calendarMoods[selectedDate];
-  if(savedMood) selectedMood = savedMood;
-  taskBox.style.display = "block";
-  taskTitle.innerHTML = "Tasks for " + months[calMonth] + " " + day;
-  showTasks();
-  checkWeekMood(selectedDate); // update week message when opening tasks
-};
+function showQuestion() {
+  if (current >= questions.length) {
+    showResults();
+    return;
+  }
 
-function showTasks(){
-  taskList.innerHTML = "";
-  if(!tasks[selectedDate]) tasks[selectedDate] = [];
-  tasks[selectedDate].forEach((t, i) => {
-    let div = document.createElement("div");
-    div.className = "task-item";
-    div.innerHTML = `${t} <button onclick="deleteTask(${i})">X</button>`;
-    taskList.appendChild(div);
+  const q = questions[current];
+
+  document.getElementById("progress").innerText =
+    "Question " + (current + 1) + " of " + questions.length;
+
+  document.getElementById("questionText").innerText = q.text;
+
+  const answersDiv = document.getElementById("answers");
+  answersDiv.innerHTML = "";
+
+  ["A","B","C","D"].forEach(letter => {
+    const btn = document.createElement("button");
+    btn.innerText = letter + ". " + q[letter];
+    btn.classList.add("answer-btn");
+    btn.onclick = () => checkAnswer(letter);
+    answersDiv.appendChild(btn);
   });
-  localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-/* keep addTask and deleteTask global so HTML buttons can call them */
-window.addTask = function(){
-  if(!selectedDate) return;
-  if(taskInput.value === "") return;
-  if(!tasks[selectedDate]) tasks[selectedDate] = [];
-  tasks[selectedDate].push(taskInput.value);
-  taskInput.value = "";
-  showTasks();
-};
+function checkAnswer(selected) {
+  const q = questions[current];
 
-window.deleteTask = function(index){
-  if(!tasks[selectedDate]) return;
-  tasks[selectedDate].splice(index, 1);
-  showTasks();
-};
-
-/* openCalendar toggles UI and renders calendar */
-window.openCalendar = function(){
-  hideAllScreens();
-  document.getElementById("screenCalendar").style.display = "flex";
-  renderCalendar();
-};
-
-/* mood buttons use this; ensure selectedDate is set first (openTasks) */
-function setMood(mood){
-  if(!selectedDate) return;
-  selectedMood = mood;
-  calendarMoods[selectedDate] = mood;
-  localStorage.setItem("calendarMoods", JSON.stringify(calendarMoods));
-  renderCalendar();
-  checkWeekMood(selectedDate);
-}
-
-/* attach to elements (these IDs exist in your HTML) */
-const calHappy = document.getElementById("calHappy");
-const calNeutral = document.getElementById("calNeutral");
-const calSad = document.getElementById("calSad");
-const calWeekMessage = document.getElementById("calWeekMessage");
-
-if(calHappy) calHappy.onclick = () => setMood("happy");
-if(calNeutral) calNeutral.onclick = () => setMood("neutral");
-if(calSad) calSad.onclick = () => setMood("sad");
-
-/* convert mood to numeric score for weekly summary */
-function moodValue(mood){
-  if(mood === "happy") return 1;
-  if(mood === "sad") return -1;
-  return 0;
-}
-
-/* check week mood around a selected dateKey (YYYY-MM-DD) */
-function checkWeekMood(dateKey){
-  if(!dateKey) return;
-  const [y, m, d] = dateKey.split("-").map(Number);
-  const clickedDate = new Date(y, m - 1, d);
-
-  // compute 7-day window ending at clickedDate (clickedDate and previous 6 days)
-  let score = 0;
-  let count = 0;
-
-  for(let i = 0; i < 7; i++){
-    const check = new Date(clickedDate);
-    check.setDate(clickedDate.getDate() - i);
-    const key = formatKey(check.getFullYear(), check.getMonth(), check.getDate());
-    if(calendarMoods[key]){
-      score += moodValue(calendarMoods[key]);
-      count++;
-    }
-  }
-
-  if(count > 0){
-    if(score > 2){
-      calWeekMessage.innerText = "wow! you’re enjoying recent days 😊";
-    } else if(score < -2){
-      calWeekMessage.innerText = "you seem sad recently 😢";
-    } else {
-      calWeekMessage.innerText = "your mood has been mixed this week 😐";
-    }
+  if (selected === q.correct) {
+    score++;
   } else {
-    calWeekMessage.innerText = "";
+    missed.push(q);
+  }
+
+  current++;
+  showQuestion();
+}
+
+function showResults() {
+  showReviewScreen('resultScreen');
+
+  document.getElementById("scoreText").innerText =
+    "Your Score: " + score + " / " + questions.length;
+
+  const missedDiv = document.getElementById("missedList");
+  missedDiv.innerHTML = "";
+
+  if (missed.length > 0) {
+    missedDiv.innerHTML += "<h3>Questions You Missed:</h3>";
+
+    missed.forEach(q => {
+      missedDiv.innerHTML += `
+        <div class="result-card">
+          <strong>Question:</strong> ${q.text}<br><br>
+          A. ${q.A}<br>
+          B. ${q.B}<br>
+          C. ${q.C}<br>
+          D. ${q.D}<br><br>
+          <strong style="color:green;">Correct Answer: ${q.correct}</strong>
+        </div>
+      `;
+    });
+
+  } else {
+    missedDiv.innerHTML = "<h3>Perfect Score 🎉</h3>";
   }
 }
 
-/* initial render */
-renderCalendar();
-checkWeekMood();
+function startFlipCard() {
+  if (questions.length < 4) {
+    alert("Add at least 4 questions.");
+    return;
+  }
 
-
-calHappy.onclick = () => setMood("happy");
-calNeutral.onclick = () => setMood("neutral");
-calSad.onclick = () => setMood("sad");
-
-function moodValue(mood){
-  if(mood==="happy") return 1;
-  if(mood==="sad") return -1;
-  return 0;
+  flipScore = 0;
+  document.getElementById("highestScoreDisplay").innerText = 
+    "Highest Score: " + highestScore;
+  showReviewScreen('flipCardScreen');
+  nextFlipRound();
 }
 
-function checkWeekMood(){
-  let clickedDate = new Date(selectedDate);
-  if(clickedDate.getDay() !== 6) return;
+function nextFlipRound() {
+  if (flipScore > highestScore) {
+    highestScore = flipScore;
+    localStorage.setItem("highestScore", highestScore);
+    document.getElementById("highestScoreDisplay").innerText =
+      "Highest Score: " + highestScore;
+  }
 
-  let score = 0;
-  let count = 0;
+  document.getElementById("flipScore").innerText = "Score: " + flipScore;
 
-  for(let i=0;i<7;i++){
-    let checkDate = new Date(clickedDate);
-    checkDate.setDate(clickedDate.getDate()-i);
+  currentSet = [...questions]
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 4);
 
-    let key = checkDate.getFullYear()+"-"+checkDate.getMonth()+"-"+checkDate.getDate();
+  correctAnswer =
+    currentSet[Math.floor(Math.random() * 4)];
 
-    if(calendarMoods[key]){
-      score += moodValue(calendarMoods[key]);
-      count++;
+  memoryPhase();
+}
+
+function memoryPhase() {
+  clickable = false;
+
+  let container = document.getElementById("cards");
+  container.innerHTML = "";
+  document.getElementById("flipQuestion")
+    .innerText = "Memorize the cards...";
+
+  currentSet.forEach((item, i) => {
+    container.innerHTML += `
+      <div class="flip-card">
+        <div class="inner" id="card${i}">
+          <div class="front">?</div>
+          <div class="back">${item.correct}</div>
+        </div>
+      </div>`;
+  });
+
+  let i = 0;
+  function showNext() {
+    if (i >= 4) {
+      setTimeout(questionPhase, 1000);
+      return;
     }
+
+    let card = document.getElementById("card" + i);
+    card.classList.add("flip");
+
+    setTimeout(() => {
+      card.classList.remove("flip");
+      i++;
+      setTimeout(showNext, 500);
+    }, 1500);
   }
 
-  if(count>0){
-    if(score>2){
-      calWeekMessage.innerText="wow! you’re enjoying recent days 😊";
-    }else if(score<-2){
-      calWeekMessage.innerText="you seem sad recently 😢";
-    }else{
-      calWeekMessage.innerText="your mood has been mixed this week 😐";
-    }
-  }
+  showNext();
 }
-</script>
 
-</body>
-</html>
+function questionPhase() {
+  clickable = true;
+
+  document.getElementById("flipQuestion").innerText =
+    "Which card matches: " + correctAnswer.text;
+
+  document.querySelectorAll(".flip-card")
+    .forEach((card, i) => {
+      card.onclick = function() {
+
+        if (!clickable) return;
+        clickable = false;
+
+        let chosen = currentSet[i];
+        let inner = card.querySelector(".inner");
+        let back = inner.querySelector(".back");
+
+        inner.classList.add("flip");
+
+        if (chosen.correct === correctAnswer.correct) {
+          flipScore++;
+          back.classList.add("correct");
+        } else {
+          back.classList.add("wrong");
+
+          currentSet.forEach((item, index) => {
+            if (item.correct === correctAnswer.correct) {
+              let correctCard =
+                document.getElementById("card" + index);
+              let correctBack =
+                correctCard.querySelector(".back");
+
+              correctCard.classList.add("flip");
+              correctBack.classList.add("correct");
+            }
+          });
+        }
+
+        setTimeout(nextFlipRound, 2000);
+      }
+    });
+}
+
+// INITIALIZE REVIEW
+renderSavedQuestions();
+document.getElementById("highestScoreDisplay").innerText = 
+  "Highest Score: " + highestScore;
