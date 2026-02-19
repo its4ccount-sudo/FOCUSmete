@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{  
+  margin:0;  
+  padding:0;  
+}  h1, h2, h3 {
+margin: 0;
+padding: 0;
+}
+
+.screen{
+display:none;
+}
+
+#marg,#marge,#margi,#margo,#merg,#mirg,#morg{
+position:absolute;
+width:30px;
+height:30px;
+}
+
+#marg{
+left:160px;
+top:35px;
+}
+
+#marge{
+left:160px;
+top:70px;
+}
+
+#margi{
+left:160px;
+top:105px;
+}
+
+#margo{
+left:160px;
+top:140px;
+}
+
+#merg{
+left:200px;
+top:35px;
+}
+
+#mirg{
+left:200px;
+top:70px;
+}
+
+#morg{
+left:525px;
+top:35px;
+}
+
+.introimage{
+background:url('introbackground.png');
+background-size:100% 100%;
+height:100vh;
+width:100vw;
+}
+
+.mainimage{
+background:url('mainbackground.png');
+background-size:100% 100%;
+height:100vh;
+width:100vw;
+}
+
+.notesimage{
+background:url('notesbackground.png');
+background-size:100% 100%;
+height:100vh;
+width:100vw;
+}
+
+#screenMusic{
+background:url('musicbig.jpg');
+background-size:100% 100%;
+height:100vh;
+width:100vw;
+}
+
+#screenNotes{
+background:url('Notesbig.png');
+background-size:cover;
+background-repeat:no-repeat;
+}
+
+#screenTodo{
+background:url('todobig.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+#screenTracker{
+background:url('Trackerbig.jpg');
+background-size:cover;
+background-repeat:no-repeat;
+height:100vh;
+width:100vw;
+display: flex;           
+justify-content: center; 
+align-items: center;     
+}
+
+
+#introbutton{
+width:40vw;
+height:30vh;
+margin-left:130px;
+margin-top:50px;
+}
+
+#button1{
+width:5vw;
+height:5vh;
+margin-left:5px;
+}
+
+#quote{
+font-size:12px;
+text-align:center;
+position:absolute;
+left:80%;
+transform:translateX(-50%);
+top:105px;
+}
+
+#musicButton1{
+width:150px;
+height:100px;
+margin-left:120px;
+margin-top:40px;
+position:absolute;
+}
+
+#musicButton2{
+width:150px;
+height:100px;
+margin-left:295px;
+margin-top:38px;
+position:absolute;
+}
+
+#notesArea{
+margin-top:10%;
+margin-left:15%;
+width:60%;
+height:350px;
+resize:none;
+border:none;
+outline:none;
+font-size:18px;
+background-color:transparent;
+line-height:29px;
+background-image:repeating-linear-gradient(
+to bottom,
+transparent,
+transparent 28px,
+black 29px
+);
+}
+
+.container{
+padding:20px;
+border-radius:10px;
+text-align:center;
+flex-direction:column;
+align-items:center;
+}
+
+button{
+background:green;
+color:white;
+border:none;
+padding:6px 10px;
+cursor:pointer;
+border-radius:6px;
+margin-left:5px;
+}
+
+input{
+padding:6px 10px;
+border-radius:10px;
+}
+
+ul{
+list-style:none;
+padding:0;
+width:100%;
+}
+
+li{
+margin:5px 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+#todobut,#trackbut{
+width:5vw;
+height:10vh;
+position:absolute;
+margin-left:20px;
+margin-top:-43px;
+}
+
+.box{
+background:#E5D6BE;
+padding:20px;
+border-radius:15px;
+width:320px;
+text-align:center;
+}
+
+#time{
+font-size:26px;
+font-weight:bold;
+margin:15px 0;
+}
+  /* notes*/
+  .notes-container{
+  background-color:#f5e6d3;
+  width:400px;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 5px 25px rgba(0,0,0,0.4);
+  margin:80px auto;
+}
+
+#noteName,#noteContent{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border-radius:6px;
+  border:1px solid #c7a17a;
+  font-size:14px;
+  box-sizing:border-box;
+}
+
+#noteContent{
+  height:200px;
+  resize:none;
+}
+
+.note-item{
+  background-color:#e8d3b9;
+  padding:8px;
+  border-radius:6px;
+  margin-bottom:5px;
+  cursor:pointer;
+}
+
+.note-item:hover{
+  background-color:#d7b892;
+}
+  /* Calendar */
+.calendar{
+  width:100%;
+  margin-top:20px;
+}
+
+.days-header,
+.days{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+}
+
+.days-header div{
+  font-weight:bold;
+  padding:5px;
+  text-align:center;
+}
+
+.days div{
+  padding:10px;
+  border:1px solid #bfa27a;
+  cursor:pointer;
+  background:#fffaf3;
+  border-radius:6px;
+  text-align:center;
+  font-size:14px;
+  margin:2px;
+}
+
+.days div:hover{
+  background:#f5e6cc;
+}
+
+.today{
+  background:#c49a6c !important;
+  color:white;
+}
+
+.task-box{
+  border:1px solid #bfa27a;
+  padding:10px;
+  border-radius:10px;
+  background:#fffaf3;
+}
+
+.task-box input{
+  width:65%;
+  padding:5px;
+  margin-right:5px;
+}
+
+.task-box button{
+  padding:5px 10px;
+  background:#c49a6c;
+  border:none;
+  color:white;
+  border-radius:5px;
+}
+.happy { background:#ecdd7a; }
+.neutral { background:white; }
+.sad { background:#7aabec; color:white; }
+.task-item{
+  margin-top:5px;
+  border:1px solid #bfa27a;
+  padding:5px;
+  border-radius:6px;
+  display:flex;
+  justify-content:space-between;
+  background:#f9f1e6;
+}
+  #screenCalendar {
+  display: none; 
+  height: 100vh;
+  width: 100vw;
+  background: url('calendarbig.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+  
+  
+</style>
+</head>
+
+<body>
+
+<div class="introimage" id="introscreen">
+  <h1>FOCUSmate</h1>
+  <img src="introbut.png" onclick="start()" id="introbutton" style="cursor:pointer;">
+</div>
+
+<div class="mainimage" id="mainscreen">
+  <h2>Home</h2>
+  <div id="quotebaks">
+    <span id="quote"></span>
+  </div>
+  <img src="Review.png" onclick="openReview()" id="marg" style="cursor:pointer;">  
+  <img src="Music.png" onclick="openMusic()" id="marge" style="cursor:pointer;">  
+  <img src="Notes.png" onclick="openNotes()" id="margi" style="cursor:pointer;">  
+  <img src="Todo.png" onclick="openTodo()" id="margo" style="cursor:pointer;">  
+  <img src="Calendar.png" onclick="openCalendar()" id="mirg" style="cursor:pointer;">  
+  <img src="Tracker.png" onclick="openTracker()" id="merg" style="cursor:pointer;">  
+  <img src="Exit.png" onclick="exitwebsite()" id="morg" style="cursor:pointer;">  
+</div>
+
+<div id="screenReview">
+  <h2>Review</h2>
+  <button onclick="backHome()">Back</button>
+</div>
+
+<div class="musicimage" id="screenMusic">
+  <h2>Music</h2>
+  <img src="musicbut1.png" onclick="playMusic1()" id="musicButton1" style="cursor:pointer;">
+  <img src="musicbut2.png" onclick="playMusic2()" id="musicButton2" style="cursor:pointer;">
+  <audio id="bgm" loop></audio>
+  <button onclick="backHome()">Back</button>
+</div>
+
+<div class="notesimage" id="screenNotes">
+  <div class="notes-container">
+    <h2>My Notes</h2>
+
+    <input type="text" id="noteName" placeholder="Note title">
+    <textarea id="noteContent" placeholder="Write your note..."></textarea>
+
+    <button onclick="saveNote()">Save</button>
+    <button onclick="deleteNote()">Delete</button>
+    <button onclick="backHome()">Back</button>
+
+    <div id="savedNotes"></div>
+  </div>
+</div>
+
+<div id="screenTodo">
+  <div class="box">
+    <h3>To-Do List</h3>
+    <div style="display:flex;width:100%;">
+      <input id="task" placeholder="Create task...">
+      <button onclick="add()">Add</button>
+    </div>
+    <ul id="list"></ul>
+    <button onclick="backHome()">Back</button>
+  </div>
+</div>
+
+<div id="screenTracker">
+  <div class="box">
+    <h2>Study Tracker</h2>
+    <p>Accumulated time in studying:</p>
+    <div id="time">0 minutes</div>
+    <div id="message"></div>
+    <button onclick="resetTime()">Reset</button>
+    <button onclick="backHome()">Back</button>
+  </div>
+</div>
+  
+<div id="screenCalendar" style="display:none; height:100vh; width:100vw; background:url('calendarbig.jpg'); background-size:cover; background-position:center; justify-content:center; align-items:center; flex-direction:column;">
+
+  <div style="background:rgba(230,211,179,0.9); padding:20px; border-radius:15px; width:90%; max-width:600px; text-align:center;">
+    <h2 id="monthYear"></h2>
+
+    <div class="calendar">
+      <div class="days-header">
+        <div>Sun</div><div>Mon</div><div>Tue</div>
+        <div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+      </div>
+      <div class="days" id="days"></div>
+    </div>
+
+    <div class="task-box" id="taskBox" style="display:none; margin-top:20px;">
+      <h3 id="taskTitle"></h3>
+      <input type="text" id="taskInput" placeholder="Add task...">
+      <button onclick="addTask()">Add</button>
+      <div id="taskList"></div>
+    </div>
+<div style="margin-top:20px;">
+  <h3>Vibe Check</h3>
+  <div>
+    <span id="calHappy" style="background:#ecdd7a;padding:8px 15px;border-radius:6px;cursor:pointer;margin:5px;">Happy</span>
+    <span id="calNeutral" style="background:white;border:1px solid;padding:8px 15px;border-radius:6px;cursor:pointer;margin:5px;">Neutral</span>
+    <span id="calSad" style="background:#7aabec;color:white;padding:8px 15px;border-radius:6px;cursor:pointer;margin:5px;">Sad</span>
+  </div>
+  <p id="calWeekMessage"></p>
+</div>
+    <button onclick="backHome()" style="margin-top:20px;">Back</button>
+  </div>
+</div>
+  
+<script>
+let introscreen=document.getElementById("introscreen");
+let mainscreen=document.getElementById("mainscreen");
+let screenReview=document.getElementById("screenReview");
+let screenMusic=document.getElementById("screenMusic");
+let screenNotes=document.getElementById("screenNotes");
+let screenTodo=document.getElementById("screenTodo");
+let screenTracker=document.getElementById("screenTracker");
+let screenCalendar=document.getElementById("screenCalendar");
+
+function hideAllScreens(){
+  introscreen.style.display="none";
+  mainscreen.style.display="none";
+  screenReview.style.display="none";
+  screenMusic.style.display="none";
+  screenNotes.style.display="none";
+  screenTodo.style.display="none";
+  screenTracker.style.display="none";
+  screenCalendar.style.display="none";
+}
+
+function start(){
+  hideAllScreens();
+  mainscreen.style.display="block";
+}
+
+function openReview(){hideAllScreens();screenReview.style.display="block";}
+function openMusic(){hideAllScreens();screenMusic.style.display="block";}
+function openNotes(){hideAllScreens();screenNotes.style.display="block";}
+function openTodo(){hideAllScreens();screenTodo.style.display="flex";}
+function openTracker(){hideAllScreens();screenTracker.style.display="flex";}
+function backHome(){hideAllScreens();mainscreen.style.display="block";}
+function exitwebsite(){
+  window.close();
+}
+
+
+function fnctbox(){
+  var quotes=[
+    "Trust God with all <br> your heart.",
+    "Do not give up, God <br> is with you.",
+    "Pray first before <br> anything else.",
+    "God's timing is <br> always perfect.",
+    "Faith over fear."
+  ];
+  var random=Math.floor(Math.random()*quotes.length);
+  document.getElementById("quote").innerHTML=quotes[random];
+}
+
+window.onload=function(){
+  hideAllScreens();
+  introscreen.style.display="block";
+  fnctbox();
+}
+
+const bgm=document.getElementById("bgm");
+
+document.addEventListener("click",function autoPlay(){
+  bgm.src="music1.mp3";
+  bgm.play();
+  document.removeEventListener("click",autoPlay);
+});
+
+function playMusic1(){bgm.src="music1.mp3";bgm.play();}
+function playMusic2(){bgm.src="music2.mp3";bgm.play();}
+
+function add(){
+  var t=document.getElementById("task");
+  if(t.value==="")return;
+  var li=document.createElement("li");
+  li.textContent=t.value+" ";
+  li.onclick=function(){
+    li.style.textDecoration=
+    li.style.textDecoration==="line-through"?"none":"line-through";
+  };
+  var x=document.createElement("button");
+  x.textContent="X";
+  x.onclick=function(e){
+    e.stopPropagation();
+    li.remove();
+  };
+  li.appendChild(x);
+  document.getElementById("list").appendChild(li);
+  t.value="";
+}
+
+let seconds=localStorage.getItem("studyTime")?parseInt(localStorage.getItem("studyTime")):0;
+
+function updateDisplay(){
+  let minutes=Math.floor(seconds/60);
+  document.getElementById("time").innerText=minutes+" minutes";
+  if(minutes>0){
+    document.getElementById("message").innerText="Well done! 🎉";
+  }
+}
+
+updateDisplay();
+
+setInterval(()=>{
+  seconds++;
+  localStorage.setItem("studyTime",seconds);
+  updateDisplay();
+},1000);
+
+function resetTime(){
+  seconds=0;
+  localStorage.removeItem("studyTime");
+  updateDisplay();
+  document.getElementById("message").innerText="";
+}
+  /*notes*/
+  let notes = JSON.parse(localStorage.getItem("myNotes")) || [];
+
+function saveNote(){
+  let name = document.getElementById("noteName").value;
+  let content = document.getElementById("noteContent").value;
+
+  if(name === "" || content === ""){
+    alert("Please fill in both fields.");
+    return;
+  }
+
+  let existingIndex = notes.findIndex(n => n.name === name);
+
+  if(existingIndex >= 0){
+    notes[existingIndex].content = content;
+  }else{
+    notes.push({name:name, content:content});
+  }
+
+  localStorage.setItem("myNotes", JSON.stringify(notes));
+
+  document.getElementById("noteName").value="";
+  document.getElementById("noteContent").value="";
+
+  showNotes();
+}
+
+function deleteNote(){
+  let name = document.getElementById("noteName").value;
+
+  notes = notes.filter(n => n.name !== name);
+
+  localStorage.setItem("myNotes", JSON.stringify(notes));
+
+  document.getElementById("noteName").value="";
+  document.getElementById("noteContent").value="";
+
+  showNotes();
+}
+
+function showNotes(){
+  let container = document.getElementById("savedNotes");
+  container.innerHTML="";
+
+  notes.forEach(function(note){
+    let div=document.createElement("div");
+    div.className="note-item";
+    div.innerText=note.name;
+
+    div.onclick=function(){
+      document.getElementById("noteName").value=note.name;
+      document.getElementById("noteContent").value=note.content;
+    };
+
+    container.appendChild(div);
+  });
+}
+
+showNotes();
+  
+/* ---------------- REPLACE Calendar JS WITH THIS BLOCK ---------------- */
+
+const monthYear = document.getElementById("monthYear");
+const daysContainer = document.getElementById("days");
+const taskBox = document.getElementById("taskBox");
+const taskTitle = document.getElementById("taskTitle");
+const taskList = document.getElementById("taskList");
+const taskInput = document.getElementById("taskInput");
+
+const today = new Date();
+let calYear = today.getFullYear();
+let calMonth = today.getMonth(); // 0-based
+const months = [
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December"
+];
+
+/* consistent ISO-style date key: YYYY-MM-DD (month is 1-based, zero-padded) */
+function formatKey(y, mZeroBased, d){
+  return `${y}-${String(mZeroBased + 1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+}
+
+let tasks = JSON.parse(localStorage.getItem("tasks")) || {};
+let calendarMoods = JSON.parse(localStorage.getItem("calendarMoods")) || {};
+let selectedDate = "";     // ISO key like "2026-02-20"
+let selectedMood = "happy";
+
+// Single, global calendar renderer (no duplicates)
+function renderCalendar(){
+  daysContainer.innerHTML = "";
+  monthYear.innerText = months[calMonth] + " " + calYear;
+
+  const firstDay = new Date(calYear, calMonth, 1).getDay();
+  const lastDate = new Date(calYear, calMonth + 1, 0).getDate();
+
+  // empty slots before first day
+  for(let i = 0; i < firstDay; i++){
+    daysContainer.innerHTML += "<div></div>";
+  }
+
+  for(let day = 1; day <= lastDate; day++){
+    const dateKey = formatKey(calYear, calMonth, day);
+    const moodClass = calendarMoods[dateKey] || "";
+    const isToday = (day === today.getDate() && calMonth === today.getMonth() && calYear === today.getFullYear());
+    const className = (isToday ? "today " : "") + moodClass;
+    // make sure openTasks is global (we expose it below)
+    daysContainer.innerHTML += `<div class="${className}" onclick="openTasks(${day})">${day}</div>`;
+  }
+}
+
+/* openTasks must be global because the HTML uses onclick inline */
+window.openTasks = function(day){
+  selectedDate = formatKey(calYear, calMonth, day);
+  const savedMood = calendarMoods[selectedDate];
+  if(savedMood) selectedMood = savedMood;
+  taskBox.style.display = "block";
+  taskTitle.innerHTML = "Tasks for " + months[calMonth] + " " + day;
+  showTasks();
+  checkWeekMood(selectedDate); // update week message when opening tasks
+};
+
+function showTasks(){
+  taskList.innerHTML = "";
+  if(!tasks[selectedDate]) tasks[selectedDate] = [];
+  tasks[selectedDate].forEach((t, i) => {
+    let div = document.createElement("div");
+    div.className = "task-item";
+    div.innerHTML = `${t} <button onclick="deleteTask(${i})">X</button>`;
+    taskList.appendChild(div);
+  });
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+/* keep addTask and deleteTask global so HTML buttons can call them */
+window.addTask = function(){
+  if(!selectedDate) return;
+  if(taskInput.value === "") return;
+  if(!tasks[selectedDate]) tasks[selectedDate] = [];
+  tasks[selectedDate].push(taskInput.value);
+  taskInput.value = "";
+  showTasks();
+};
+
+window.deleteTask = function(index){
+  if(!tasks[selectedDate]) return;
+  tasks[selectedDate].splice(index, 1);
+  showTasks();
+};
+
+/* openCalendar toggles UI and renders calendar */
+window.openCalendar = function(){
+  hideAllScreens();
+  document.getElementById("screenCalendar").style.display = "flex";
+  renderCalendar();
+};
+
+/* mood buttons use this; ensure selectedDate is set first (openTasks) */
+function setMood(mood){
+  if(!selectedDate) return;
+  selectedMood = mood;
+  calendarMoods[selectedDate] = mood;
+  localStorage.setItem("calendarMoods", JSON.stringify(calendarMoods));
+  renderCalendar();
+  checkWeekMood(selectedDate);
+}
+
+/* attach to elements (these IDs exist in your HTML) */
+const calHappy = document.getElementById("calHappy");
+const calNeutral = document.getElementById("calNeutral");
+const calSad = document.getElementById("calSad");
+const calWeekMessage = document.getElementById("calWeekMessage");
+
+if(calHappy) calHappy.onclick = () => setMood("happy");
+if(calNeutral) calNeutral.onclick = () => setMood("neutral");
+if(calSad) calSad.onclick = () => setMood("sad");
+
+/* convert mood to numeric score for weekly summary */
+function moodValue(mood){
+  if(mood === "happy") return 1;
+  if(mood === "sad") return -1;
+  return 0;
+}
+
+/* check week mood around a selected dateKey (YYYY-MM-DD) */
+function checkWeekMood(dateKey){
+  if(!dateKey) return;
+  const [y, m, d] = dateKey.split("-").map(Number);
+  const clickedDate = new Date(y, m - 1, d);
+
+  // compute 7-day window ending at clickedDate (clickedDate and previous 6 days)
+  let score = 0;
+  let count = 0;
+
+  for(let i = 0; i < 7; i++){
+    const check = new Date(clickedDate);
+    check.setDate(clickedDate.getDate() - i);
+    const key = formatKey(check.getFullYear(), check.getMonth(), check.getDate());
+    if(calendarMoods[key]){
+      score += moodValue(calendarMoods[key]);
+      count++;
+    }
+  }
+
+  if(count > 0){
+    if(score > 2){
+      calWeekMessage.innerText = "wow! you’re enjoying recent days 😊";
+    } else if(score < -2){
+      calWeekMessage.innerText = "you seem sad recently 😢";
+    } else {
+      calWeekMessage.innerText = "your mood has been mixed this week 😐";
+    }
+  } else {
+    calWeekMessage.innerText = "";
+  }
+}
+
+/* initial render */
+renderCalendar();
+checkWeekMood();
+
+
+calHappy.onclick = () => setMood("happy");
+calNeutral.onclick = () => setMood("neutral");
+calSad.onclick = () => setMood("sad");
+
+function moodValue(mood){
+  if(mood==="happy") return 1;
+  if(mood==="sad") return -1;
+  return 0;
+}
+
+function checkWeekMood(){
+  let clickedDate = new Date(selectedDate);
+  if(clickedDate.getDay() !== 6) return;
+
+  let score = 0;
+  let count = 0;
+
+  for(let i=0;i<7;i++){
+    let checkDate = new Date(clickedDate);
+    checkDate.setDate(clickedDate.getDate()-i);
+
+    let key = checkDate.getFullYear()+"-"+checkDate.getMonth()+"-"+checkDate.getDate();
+
+    if(calendarMoods[key]){
+      score += moodValue(calendarMoods[key]);
+      count++;
+    }
+  }
+
+  if(count>0){
+    if(score>2){
+      calWeekMessage.innerText="wow! you’re enjoying recent days 😊";
+    }else if(score<-2){
+      calWeekMessage.innerText="you seem sad recently 😢";
+    }else{
+      calWeekMessage.innerText="your mood has been mixed this week 😐";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
