@@ -725,12 +725,16 @@ li{
 
 <!-- MUSIC SCREEN -->
 <div class="musicimage" id="screenMusic">  
-  <h2>Music</h2>  
-  <img src="musicbut1.png" onclick="playMusic1()" id="musicButton1" style="cursor:pointer;">  
-  <img src="musicbut2.png" onclick="playMusic2()" id="musicButton2" style="cursor:pointer;">  
-  <audio id="bgm" loop></audio>  
-  <button onclick="backHome()">Back</button>  
-</div>  
+  <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%;">
+    <h2>Music</h2>  
+    <div style="display: flex; gap: 30px; justify-content: center;">
+      <img src="musicbut1.png" onclick="playMusic1()" id="musicButton1" style="cursor:pointer; width:150px; height:100px; margin:0;">  
+      <img src="musicbut2.png" onclick="playMusic2()" id="musicButton2" style="cursor:pointer; width:150px; height:100px; margin:0;">
+    </div>
+    <audio id="bgm" loop></audio>  
+    <button onclick="backHome()">Back</button>  
+  </div>
+</div>
 
 <!-- NOTES SCREEN -->
 <div class="notesimage" id="screenNotes">  
