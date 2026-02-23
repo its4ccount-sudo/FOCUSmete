@@ -60,14 +60,22 @@ h1, h2, h3 {
   background-size:100% 100%;
   height:100vh;
   width:100vw;
-  text-align: center;              
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 90px;
+  text-align: center;
+}
+
+.introimage h1 {
+  margin-bottom: 10px;
 }
 
 #introbutton{
-  display: inline-block;            
+  display: inline-block;
   width: 40vw;
   height: 30vh;
-  margin-top: 100px;
   cursor: pointer;
 }
 
