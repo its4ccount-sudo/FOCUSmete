@@ -870,7 +870,8 @@ function openTodo(){hideAllScreens(); screenTodo.style.display = "flex";}
 function openTracker(){hideAllScreens(); screenTracker.style.display = "flex";}  
 function backHome(){hideAllScreens(); mainscreen.style.display = "block";}  
 function exitwebsite(){  
-  window.close();  
+  hideAllScreens();  
+  introscreen.style.display = "block";  
 }  
 
 // ==================== REVIEW SCREEN MANAGEMENT ====================
