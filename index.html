@@ -502,7 +502,20 @@ button:hover {
   text-align:center;
   font-size:14px;
   margin:2px;
+  position: relative;
 }
+
+  .has-tasks::after {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  background: red;
+  border-radius: 50%;
+  border: 1px solid white;
+  }
 
 .days div:hover{
   background:#f5e6cc;
@@ -554,7 +567,7 @@ button:hover {
   position:absolute;
   left:80%;
   transform:translateX(-50%);
-  top:165px;
+  top:170px;
 }
 
 #musicButton1{
@@ -1047,7 +1060,7 @@ function showNotes(){
 
 showNotes();  
 
-// ==================== CALENDAR ====================
+  // ==================== CALENDAR ====================
 const monthYear = document.getElementById("monthYear");  
 const daysContainer = document.getElementById("days");  
 const taskBox = document.getElementById("taskBox");  
@@ -1078,7 +1091,17 @@ function renderCalendar(){
   }  
 
   for(let day = 1; day <= lastDate; day++){  
-    let className = day === date.getDate() && month === date.getMonth() && year === date.getFullYear() ? "today" : "";  
+    let className = "";
+    
+    if(day === date.getDate() && month === date.getMonth() && year === date.getFullYear()) {
+      className = "today";
+    }
+    
+    let dateKey = year + "-" + month + "-" + day;
+    if(tasks[dateKey] && tasks[dateKey].length > 0) {
+      className = className + " has-tasks";
+    }
+    
     daysContainer.innerHTML += `<div class="${className}" onclick="openTasks(${day})">${day}</div>`;  
   }  
 }  
@@ -1092,7 +1115,10 @@ function openTasks(day){
 
 function showTasks(){  
   taskList.innerHTML = "";  
-  if(!tasks[selectedDate]) tasks[selectedDate] = [];  
+ 
+  if(!tasks[selectedDate]) {
+    tasks[selectedDate] = [];
+  }
   
   tasks[selectedDate].forEach((t, i) => {  
     let div = document.createElement("div");  
@@ -1101,12 +1127,18 @@ function showTasks(){
     taskList.appendChild(div);  
   });  
   
-  localStorage.setItem("tasks", JSON.stringify(tasks));  
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  
+  renderCalendar();
 }  
 
 function addTask(){  
   if(taskInput.value === "") return;  
-  if(!tasks[selectedDate]) tasks[selectedDate] = [];  
+  
+  if(!tasks[selectedDate]) {
+    tasks[selectedDate] = [];
+  }
+  
   tasks[selectedDate].push(taskInput.value);  
   localStorage.setItem("tasks", JSON.stringify(tasks));  
   taskInput.value = "";  
@@ -1123,7 +1155,7 @@ function openCalendar(){
   hideAllScreens();  
   screenCalendar.style.display = "flex";  
   renderCalendar();
-}  
+}
 
 // ==================== MOOD TRACKER ====================
 let calendarMoods = JSON.parse(localStorage.getItem("calendarMoods")) || {};
