@@ -1376,7 +1376,7 @@ function startFlipCard() {
   showReviewScreen('flipCardScreen');
   nextFlipRound();
 }
-
+  
 function nextFlipRound() {
   if (flipScore > highestScore) {
     highestScore = flipScore;
@@ -1387,12 +1387,16 @@ function nextFlipRound() {
 
   document.getElementById("flipScore").innerText = "Score: " + flipScore;
 
-  currentSet = [...questions]
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 4);
+  correctAnswer = questions[Math.floor(Math.random() * questions.length)];
 
-  correctAnswer =
-    currentSet[Math.floor(Math.random() * 4)];
+  currentSet = [
+    { letter: 'A', text: correctAnswer.A },
+    { letter: 'B', text: correctAnswer.B },
+    { letter: 'C', text: correctAnswer.C },
+    { letter: 'D', text: correctAnswer.D }
+  ];
+
+  currentSet.sort(() => 0.5 - Math.random());
 
   memoryPhase();
 }
@@ -1410,7 +1414,7 @@ function memoryPhase() {
       <div class="flip-card">
         <div class="inner" id="card${i}">
           <div class="front">?</div>
-          <div class="back">${item[item.correct]}</div>
+          <div class="back">${item.text}</div>
         </div>
       </div>`;
   });
@@ -1454,19 +1458,17 @@ function questionPhase() {
 
         inner.classList.add("flip");
 
-        if (chosen.correct === correctAnswer.correct) {
+        if (chosen.letter === correctAnswer.correct) {
           flipScore++;
           back.classList.add("correct");
         } else {
           back.classList.add("wrong");
 
+ 
           currentSet.forEach((item, index) => {
-            if (item.correct === correctAnswer.correct) {
-              let correctCard =
-                document.getElementById("card" + index);
-              let correctBack =
-                correctCard.querySelector(".back");
-
+            if (item.letter === correctAnswer.correct) {
+              let correctCard = document.getElementById("card" + index);
+              let correctBack = correctCard.querySelector(".back");
               correctCard.classList.add("flip");
               correctBack.classList.add("correct");
             }
@@ -1478,7 +1480,6 @@ function questionPhase() {
     });
 }
 
-// INITIALIZE REVIEW
 renderSavedQuestions();
 document.getElementById("highestScoreDisplay").innerText = 
   "Highest Score: " + highestScore;
